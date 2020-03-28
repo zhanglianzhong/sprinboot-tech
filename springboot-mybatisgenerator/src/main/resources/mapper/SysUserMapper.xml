@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qinghaihu.springbootmybatisgenerator.dao.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.qinghaihu.springbootmybatisgenerator.entity.SysUser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="userState" jdbcType="INTEGER" property="userstate" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="userDesc" jdbcType="VARCHAR" property="userdesc" />
+    <result column="userImg" jdbcType="VARCHAR" property="userimg" />
+    <result column="deptId" jdbcType="VARCHAR" property="deptid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userName, password, userState, createTime, userDesc, userImg, deptId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qinghaihu.springbootmybatisgenerator.entity.SysUser">
+    insert into sys_user (id, userName, password, 
+      userState, createTime, userDesc, 
+      userImg, deptId)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userstate,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{userdesc,jdbcType=VARCHAR}, 
+      #{userimg,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qinghaihu.springbootmybatisgenerator.entity.SysUser">
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="userstate != null">
+        userState,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="userdesc != null">
+        userDesc,
+      </if>
+      <if test="userimg != null">
+        userImg,
+      </if>
+      <if test="deptid != null">
+        deptId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        #{userstate,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userdesc != null">
+        #{userdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="userimg != null">
+        #{userimg,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null">
+        #{deptid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qinghaihu.springbootmybatisgenerator.entity.SysUser">
+    update sys_user
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        userState = #{userstate,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userdesc != null">
+        userDesc = #{userdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="userimg != null">
+        userImg = #{userimg,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null">
+        deptId = #{deptid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qinghaihu.springbootmybatisgenerator.entity.SysUser">
+    update sys_user
+    set userName = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      userState = #{userstate,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      userDesc = #{userdesc,jdbcType=VARCHAR},
+      userImg = #{userimg,jdbcType=VARCHAR},
+      deptId = #{deptid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

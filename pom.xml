@@ -23,6 +23,7 @@
    <modules>
 	   <module>springboot-common</module>
 	   <module>springboot-swagger</module>
+	   <module>springboot-mybatisgenerator</module>
 	   <module>springboot-mybatis</module>
    </modules>
 	<!-- 版本说明：这里统一管理依赖的版本号,为了各个子module依赖包的一致性，避免版本不一致导致冲突问题 -->
