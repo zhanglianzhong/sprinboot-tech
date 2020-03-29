@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qinghaihu.springbootmybatis.dao.SysUserDao">
+  <resultMap id="BaseResultMap" type="com.qinghaihu.springbootmybatis.entity.SysUser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="userState" jdbcType="INTEGER" property="userstate" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="userDesc" jdbcType="VARCHAR" property="userdesc" />
+    <result column="userImg" jdbcType="VARCHAR" property="userimg" />
+    <result column="deptId" jdbcType="VARCHAR" property="deptid" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.qinghaihu.springbootmybatis.entity.SysUser">
+    insert into sys_user (id, userName, password, 
+      userState, createTime, userDesc, 
+      userImg, deptId)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userstate,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{userdesc,jdbcType=VARCHAR}, 
+      #{userimg,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR})
+  </insert>
+
+
+  <update id="updateByPrimaryKey" parameterType="com.qinghaihu.springbootmybatis.entity.SysUser">
+    update sys_user
+    set userName = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      userState = #{userstate,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      userDesc = #{userdesc,jdbcType=VARCHAR},
+      userImg = #{userimg,jdbcType=VARCHAR},
+      deptId = #{deptid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+</mapper>
