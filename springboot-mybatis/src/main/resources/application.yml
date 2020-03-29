@@ -25,6 +25,6 @@ spring:
 
 #mybatis
 mybatis:
-  mapper-locations: classpath:/mapper/*/*Mapper.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
   typeAliasesPackage: com.qinghaihu.springbootmybatis.entity
