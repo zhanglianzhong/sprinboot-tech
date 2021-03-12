@@ -18,7 +18,7 @@ import java.util.List;
 @Api(value = "用户服务",description = "用户的基本操作")
 public class UserController {
 
-    @ApiOperation(value = "用户列表服务",notes = "查詢所有用戶的列表信息")
+    @ApiOperation(value = "用户列表服务",notes = "查询所有用戶的列表信息")
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public List<User> list() {
         List<User> userList = new ArrayList<>();
